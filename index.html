@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+    body {
+        font-family: "Urbanist", sans-serif;
+        font-size: 25px;
+        background-color: whitesmoke;
+        /* font-weight: 300; */
+
+    }
+
+    #btn {
+        font-family: "Urbanist", sans-serif;
+        border-radius: 20px;
+        background-color: none;
+        /* box-sizing: border-box; */
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        font-size: 20px;
+        /* color: white; */
+        /* background-color: lightcoral; */
+        border: none;
+        transition: all ease-in-out .2s;
+
+    }
+
+   
+
+    .container {
+        /* border: 1px solid black; */
+        display: flex;
+        /* align-items: center; */
+        /* justify-content: center; */
+        width: 100%;
+        height: 80vh;
+        /* text-align: center; */
+    }
+
+    .btncontainer {
+        text-align: center;
+
+    }
+
+    .quotes {
+        /* border: 1px solid black; */
+        /* box-shadow: -10px -9px 7px white,
+            9px 10px 5px #cecece; */
+        width: 900px;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        border-radius: 30px;
+    }
+
+    #btn {
+        /* box-shadow: -10px -9px 7px white,
+            9px 10px 5px #cecece; */
+    }
+</style>
+
+<body id="body">
+    <div class="container" style="text-align: center;">
+        <div class="quotes">
+            <h1 id="description">Hello world</h1>
+            <p id="authors">Author Name</p>
+        </div>
+    </div>
+    <div class="btncontainer">
+        <button id="btn">Random Quote</button>
+    </div>
+    <script>
+        var quotes = {
+            "If you don't have time to read, you don't have the time (or the tools) to write. Simple as that.": " Stephen King",
+            "You should write because you love the shape of stories and sentences and the creation of different words on a page. Writing comes from reading, and reading is the finest teacher of how to write": "Annie Prouix",
+            "Indeed, learning to write may be part of learning to read. For all I know, writing comes out of a superior devotion to reading.": "Eudora Welty",
+            "Read, read, read. Read everything  —  trash, classics, good and bad, and see how they do it. Just like a carpenter who works as an apprentice and studies the master. Read! You'll absorb it. Then write. If it's good, you'll find out. If it's not, throw it out of the window.": "Willam Faulkner",
+            "I kept always two books in my pocket on to read and the other to write in ": "Robert",
+        }
+        var authors = Object.values(quotes);
+        var description = Object.keys(quotes);
+        console.log(authors)
+        console.log(description)
+
+        const colors = ["red", "green", "orange", "maroon", "lightgreen"]
+        console.log(colors[3])
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', function () {
+            console.log(Math.floor(Math.random() * 5));
+            const number = Math.floor(Math.random() * 5)
+            document.getElementById('body').style.background = colors[number];
+            document.getElementById('description').innerHTML = description[number]
+            document.getElementById('authors').innerHTML =  '-' + authors[number]
+        })
+
+
+    </script>
+</body>
+
+</html>
